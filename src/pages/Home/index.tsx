@@ -21,7 +21,6 @@ interface CartItemsAmount {
   [key: number]: number;
 }
 
-
 const Home = (): JSX.Element => {
   const [products, setProducts] = useState<ProductFormatted[]>([]);
   const { addProduct, cart } = useCart();
@@ -47,7 +46,7 @@ const Home = (): JSX.Element => {
   function handleAddProduct(id: number) {
     addProduct(id)
   }
-
+  
   return (
     <ProductList>
       {products.map((product:Product)=> 
@@ -63,7 +62,7 @@ const Home = (): JSX.Element => {
         >
           <div data-testid="cart-product-quantity">
             <MdAddShoppingCart size={16} color="#FFF" />
-            {cartItemsAmount[product.id]}
+            {cartItemsAmount[product.id] || 0}
           </div>
 
           <span>ADICIONAR AO CARRINHO</span>
